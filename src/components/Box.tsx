@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ID } from '../types';
 
 function Box({ label, x, y }: { label: ID, x: number, y: number }) {
+  let [hoverState, setHoverState] = useState(false);
+
   return (
     <>
       <rect
@@ -9,8 +11,10 @@ function Box({ label, x, y }: { label: ID, x: number, y: number }) {
         y={70 * y}
         width={50}
         height={50}
-        fill="white"
+        fill={hoverState ? "#dfd" : "white"}
         stroke="black"
+        onMouseEnter={() => setHoverState(true)}
+        onMouseLeave={() => setHoverState(false)}
       />
       <text
         x={200 * x - 75}
@@ -18,6 +22,9 @@ function Box({ label, x, y }: { label: ID, x: number, y: number }) {
         dominantBaseline="middle"
         textAnchor="middle"
         fontSize="24px"
+        style={{ cursor: "default" }}
+        onMouseEnter={() => setHoverState(true)}
+        onMouseLeave={() => setHoverState(false)}
       >
         {label}
       </text>
