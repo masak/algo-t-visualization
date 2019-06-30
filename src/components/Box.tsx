@@ -5,8 +5,6 @@ import {
   boxHeight,
   boxRowSpacing,
   boxWidth,
-  dagOffsetX,
-  dagOffsetY
 } from "../lengths";
 
 export type BoxCoords = [number, number, number, number];
