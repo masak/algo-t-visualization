@@ -3,6 +3,9 @@ import { ID, Node, Edge } from './types';
 import Box from './components/Box';
 import Arrow from './components/Arrow';
 
+const width = 600;
+const height = 600;
+
 let nodes: Array<Node> = [
   { id: 1, x: 2, y: 1 },
   { id: 2, x: 1, y: 6 },
@@ -56,7 +59,8 @@ function App() {
   ));
 
   return (
-    <svg width="600" height="600" viewBox="0 0 600 600">
+    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
+      <rect x="0" y="0" width={width} height={height} fill="white" stroke="red" />
       { boxes }
       { arrows }
     </svg>
