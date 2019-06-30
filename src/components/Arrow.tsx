@@ -63,9 +63,10 @@ function Arrow({ fromX, fromY, toX, toY }: { fromX: number, fromY: number, toX: 
         x2={v.x2}
         y2={v.y2}
         stroke="black"
+        strokeWidth="2"
       />
-      <path d={`M ${v.x2},${v.y2} L ${x2h1},${y2h1}`} stroke="black" />
-      <path d={`M ${v.x2},${v.y2} L ${x2h2},${y2h2}`} stroke="black" />
+      <path d={`M ${v.x2},${v.y2} L ${x2h1},${y2h1}`} stroke="black" strokeWidth="2" />
+      <path d={`M ${v.x2},${v.y2} L ${x2h2},${y2h2}`} stroke="black" strokeWidth="2" />
     </>
   );
 }

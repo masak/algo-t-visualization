@@ -13,6 +13,7 @@ function Box({ label, x, y }: { label: ID, x: number, y: number }) {
         height={50}
         fill={hoverState ? "#dfd" : "white"}
         stroke="black"
+        strokeWidth="2"
         onMouseEnter={() => setHoverState(true)}
         onMouseLeave={() => setHoverState(false)}
       />
