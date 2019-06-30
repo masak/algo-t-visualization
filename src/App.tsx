@@ -2,6 +2,7 @@ import React from 'react';
 import { ID, Node, Edge } from './types';
 import Box from './components/Box';
 import Arrow from './components/Arrow';
+import Grid from './components/Grid';
 
 const width = 600;
 const height = 600;
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-      <rect x="0" y="0" width={width} height={height} fill="white" stroke="red" />
+      <Grid width={width} height={height} />
       { boxes }
       { arrows }
     </svg>
