@@ -1,11 +1,9 @@
 import React from 'react';
 import { ID, Node, Edge } from './types';
+import { appWidth, appHeight } from './lengths';
 import Box from './components/Box';
 import Arrow from './components/Arrow';
 import Grid from './components/Grid';
-
-const width = 600;
-const height = 600;
 
 let nodes: Array<Node> = [
   { id: 1, x: 2, y: 1 },
@@ -60,8 +58,8 @@ function App() {
   ));
 
   return (
-    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-      <Grid width={width} height={height} />
+    <svg width={appWidth} height={appHeight} viewBox={`0 0 ${appWidth} ${appHeight}`}>
+      <Grid width={appWidth} height={appHeight} />
       { boxes }
       { arrows }
     </svg>

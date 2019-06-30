@@ -1,16 +1,35 @@
 import React, { useState } from 'react';
 import { ID } from '../types';
+import {boxColumnSpacing, boxHeight, boxRowSpacing, boxWidth} from "../lengths";
+
+export type BoxCoords = [number, number, number, number];
+
+export function boxCoords(x: number, y: number): BoxCoords {
+  return [
+    boxColumnSpacing * (x - 1),
+    boxRowSpacing * (y - 1),
+    boxColumnSpacing * (x - 1) + boxWidth,
+    boxRowSpacing * (y - 1) + boxHeight
+  ];
+}
+
+export function mid(v1: number, v2: number) {
+  return (v1 + v2) / 2;
+}
 
 function Box({ label, x, y }: { label: ID, x: number, y: number }) {
   let [hoverState, setHoverState] = useState(false);
+  let [x1, y1, x2, y2] = boxCoords(x, y);
+  let midX = mid(x1, x2);
+  let midY = mid(y1, y2);
 
   return (
     <>
       <rect
-        x={200 * x - 100}
-        y={70 * y}
-        width={50}
-        height={50}
+        x={x1}
+        y={y1}
+        width={x2 - x1}
+        height={y2 - y1}
         fill={hoverState ? "#dfd" : "white"}
         stroke="black"
         strokeWidth="2"
@@ -18,8 +37,8 @@ function Box({ label, x, y }: { label: ID, x: number, y: number }) {
         onMouseLeave={() => setHoverState(false)}
       />
       <text
-        x={200 * x - 75}
-        y={70 * y + 25}
+        x={midX}
+        y={midY}
         dominantBaseline="middle"
         textAnchor="middle"
         fontSize="24px"
