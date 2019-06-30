@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { ID } from '../types';
-import {boxColumnSpacing, boxHeight, boxRowSpacing, boxWidth} from "../lengths";
+import {
+  boxColumnSpacing,
+  boxHeight,
+  boxRowSpacing,
+  boxWidth,
+  dagOffsetX,
+  dagOffsetY
+} from "../lengths";
 
 export type BoxCoords = [number, number, number, number];
 
