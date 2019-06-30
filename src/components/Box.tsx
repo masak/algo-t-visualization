@@ -25,9 +25,6 @@ export function mid(v1: number, v2: number) {
 function Box({ label, x, y }: { label: ID, x: number, y: number }) {
   let [hoverState, setHoverState] = useState(false);
   let [x1, y1, x2, y2] = boxCoords(x, y);
-  let midX = mid(x1, x2);
-  let midY = mid(y1, y2);
-
   return (
     <>
       <rect
@@ -42,8 +39,8 @@ function Box({ label, x, y }: { label: ID, x: number, y: number }) {
         onMouseLeave={() => setHoverState(false)}
       />
       <text
-        x={midX}
-        y={midY}
+        x={mid(x1, x2)}
+        y={mid(y1, y2)}
         dominantBaseline="middle"
         textAnchor="middle"
         fontSize="24px"
