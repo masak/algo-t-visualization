@@ -25,6 +25,10 @@ export function mid(v1: number, v2: number) {
 function Box({ label, x, y }: { label: ID, x: number, y: number }) {
   let [hoverState, setHoverState] = useState(false);
   let [x1, y1, x2, y2] = boxCoords(x, y);
+  let hoverBehavior = {
+    onMouseEnter: () => setHoverState(true),
+    onMouseLeave: () => setHoverState(false),
+  };
   return (
     <>
       <rect
@@ -35,8 +39,7 @@ function Box({ label, x, y }: { label: ID, x: number, y: number }) {
         fill={hoverState ? "#dfd" : "white"}
         stroke="black"
         strokeWidth="2"
-        onMouseEnter={() => setHoverState(true)}
-        onMouseLeave={() => setHoverState(false)}
+        {...hoverBehavior}
       />
       <text
         x={mid(x1, x2)}
@@ -45,8 +48,7 @@ function Box({ label, x, y }: { label: ID, x: number, y: number }) {
         textAnchor="middle"
         fontSize="24px"
         style={{ cursor: "default" }}
-        onMouseEnter={() => setHoverState(true)}
-        onMouseLeave={() => setHoverState(false)}
+        {...hoverBehavior}
       >
         {label}
       </text>
