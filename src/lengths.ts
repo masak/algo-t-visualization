@@ -6,7 +6,7 @@ export const dagOffsetY = padding;
 export const boxHeight = 40;
 export const boxWidth = 40;
 
-export const boxRowSpacing = 80;
+export const boxRowSpacing = 60;
 export const boxColumnSpacing = 200;
 
 const columns = 3;
